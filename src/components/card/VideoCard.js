@@ -4,7 +4,10 @@ import "./VideoCard.css";
 const VideoCard = ({ video }) => {
   return (
     <div className="videocard">
-      <iframe src={video.video}></iframe>
+      <video controls>
+        <source src={video.video} />
+      </video>
+      {/* <iframe src={video.video}></iframe> */}
       <div className="video-info">
         <span className="video-heading">{video.heading}</span>
         <ul className="video-tags">

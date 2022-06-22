@@ -15,7 +15,7 @@ const Header = () => {
             {
               params: {
                 q: search,
-                numResults: 8,
+                numResults: 4,
               },
             }
           );

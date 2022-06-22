@@ -1,6 +1,6 @@
 .videos-container {
   display: grid;
-  margin: 2rem 0rem;
+  margin: 2rem 0.5rem;
   grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
   justify-items: center;
   gap: 1rem;
