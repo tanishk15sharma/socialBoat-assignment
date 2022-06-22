@@ -9,9 +9,11 @@ function App() {
     <>
       <Header />
       <main className="videos-container">
-        {videos.map((video) => (
-          <VideoCard video={video} key={video.heading} />
-        ))}
+        {videos.length ? (
+          videos.map((video) => <VideoCard video={video} key={video.heading} />)
+        ) : (
+          <h1 className="page-heading">No Videos Found</h1>
+        )}
       </main>
     </>
   );
