@@ -1,0 +1,20 @@
+body {
+  background-color: var(--bg-secondary-color);
+  color: white;
+  font-family: sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style: none;
+}
+:root {
+  --action-color: #9c7178;
+  --bg-color: #380912;
+  --bg-secondary-color: #161616;
+}
