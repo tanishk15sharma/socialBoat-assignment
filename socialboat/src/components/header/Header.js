@@ -33,9 +33,7 @@ const Header = () => {
 
   return (
     <nav>
-      <div>
-        <i className="fa-brands fa-slack logo"></i>
-      </div>
+      <i className="fa-brands fa-slack logo"></i>
       <input
         placeholder="Search"
         className="searchBar"
