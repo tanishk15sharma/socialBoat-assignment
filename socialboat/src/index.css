@@ -16,5 +16,7 @@ body {
 :root {
   --action-color: #9c7178;
   --bg-color: #380912;
+  --card-color: #2f2426;
+
   --bg-secondary-color: #161616;
 }

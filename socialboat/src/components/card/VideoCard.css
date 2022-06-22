@@ -1,0 +1,38 @@
+.videocard {
+  background-color: var(--card-color);
+  border-radius: 5px;
+  margin-bottom: 1rem;
+}
+.video-tags {
+  display: flex;
+  font-size: 0.8rem;
+  color: var(--action-color);
+  margin-top: 0.5rem;
+  flex-wrap: wrap;
+}
+.tag {
+  margin-right: 0.5rem;
+  background-color: var(--bg-color);
+  padding: 8px 10px;
+  border-radius: 10px;
+  margin-top: 5px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.tag:hover {
+  color: rgb(228, 226, 226);
+}
+iframe {
+  width: 100%;
+  border: none;
+}
+.video-info {
+  padding: 10px;
+}
+.video-heading {
+  color: var(--action-color);
+  cursor: pointer;
+}
+.video-heading:hover {
+  text-decoration: underline;
+}
