@@ -1,6 +1,6 @@
 .videocard {
   background-color: var(--card-color);
-  border-radius: 5px;
+  border-radius: 6px;
   margin-bottom: 1rem;
 }
 .video-tags {
