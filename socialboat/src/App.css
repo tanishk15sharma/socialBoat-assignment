@@ -1,0 +1,6 @@
+.videos-container {
+  display: grid;
+  margin: 2rem 0rem;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  justify-items: center;
+}
