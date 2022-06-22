@@ -24,3 +24,15 @@ nav {
   padding: 1rem 1.2rem;
   border-radius: 50%;
 }
+@media (max-width: 590px) {
+  nav {
+    padding: 0.7rem;
+  }
+  .searchBar {
+    width: 70%;
+    font-size: 1rem;
+  }
+  .user-icon {
+    padding: 0.8rem 1rem;
+  }
+}
