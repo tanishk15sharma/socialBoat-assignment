@@ -9,17 +9,19 @@ const Header = () => {
   useEffect(() => {
     (async () => {
       try {
-        const { data } = await axios.get(
-          "https://asia-south1-socialboat-dev.cloudfunctions.net/assignmentVideos",
-          {
-            params: {
-              q: search,
-              numResults: 8,
-            },
+        if (search.length) {
+          const { data } = await axios.get(
+            "https://asia-south1-socialboat-dev.cloudfunctions.net/assignmentVideos",
+            {
+              params: {
+                q: search,
+                numResults: 8,
+              },
+            }
+          );
+          if (data.status === "success") {
+            setVideos(data.results);
           }
-        );
-        if (data.status === "success") {
-          setVideos(data.results);
         }
       } catch (err) {
         console.log(err);
