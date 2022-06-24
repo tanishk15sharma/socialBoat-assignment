@@ -3,7 +3,7 @@ import { useVideos } from "../../contexts/videos";
 import "./Filter.css";
 const Filters = () => {
   const [filteredTags, setFilteredTags] = useState([]);
-  const { videosData } = useVideos();
+  const { videosData, setVideosData } = useVideos();
   console.log(videosData);
   useEffect(() => {
     let allTags = [];
@@ -18,13 +18,36 @@ const Filters = () => {
     setFilteredTags(uniqueTags);
   }, [videosData.allVideos]);
 
+  const tagInputHandler = (e) => {
+    let checked = e.target.checked;
+    if (checked) {
+      return setVideosData((previousData) => ({
+        ...previousData,
+        selectedTags: [...previousData.selectedTags, e.target.value],
+      }));
+    } else {
+      return setVideosData((previousData) => ({
+        ...previousData,
+        selectedTags: previousData.selectedTags.filter(
+          (tag) => tag !== e.target.value
+        ),
+      }));
+    }
+  };
+
   return (
     <div className="filters-container">
       {filteredTags.map((tag, index) => {
         return (
-          <label className="filter-tag" key={index}>
+          <label htmlFor={tag} className="filter-tag" key={index}>
             {tag}
-            <input type="checkbox" value={tag} />
+            <input
+              type="checkbox"
+              id={tag}
+              value={tag}
+              checked={videosData.selectedTags.includes(tag)}
+              onChange={(e) => tagInputHandler(e)}
+            />
           </label>
         );
       })}
