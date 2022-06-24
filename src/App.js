@@ -2,12 +2,14 @@ import "./App.css";
 import { Header } from "./components/header/Header";
 import { VideoCard } from "./components/card/VideoCard";
 import { useVideos } from "./contexts/videos";
+import { Filters } from "./components/filters/Filters";
 
 function App() {
   const { videos } = useVideos();
   return (
     <>
       <Header />
+      <Filters />
       <main className="videos-container">
         {videos.length ? (
           videos.map((video) => <VideoCard video={video} key={video.heading} />)

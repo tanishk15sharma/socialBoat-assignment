@@ -7,26 +7,53 @@ const Header = () => {
   const { setVideos } = useVideos();
 
   useEffect(() => {
-    (async () => {
-      try {
-        if (search.length) {
-          const { data } = await axios.get(
-            "https://asia-south1-socialboat-dev.cloudfunctions.net/assignmentVideos",
-            {
-              params: {
-                q: search,
-                numResults: 4,
-              },
+    let timer = setTimeout(() => {
+      const getVideos = async () => {
+        try {
+          if (search.length) {
+            const { data } = await axios.get(
+              "https://asia-south1-socialboat-dev.cloudfunctions.net/assignmentVideos",
+              {
+                params: {
+                  q: search,
+                  numResults: 4,
+                },
+              }
+            );
+            if (data.status === "success") {
+              setVideos(data.results);
             }
-          );
-          if (data.status === "success") {
-            setVideos(data.results);
           }
+        } catch (err) {
+          console.log(err);
         }
-      } catch (err) {
-        console.log(err);
-      }
-    })();
+      };
+      getVideos();
+    }, 1000);
+
+    return () => {
+      clearTimeout(timer); //
+    };
+    // (async () => {
+    //   try {
+    //     if (search.length) {
+    //       const { data } = await axios.get(
+    //         "https://asia-south1-socialboat-dev.cloudfunctions.net/assignmentVideos",
+    //         {
+    //           params: {
+    //             q: search,
+    //             numResults: 4,
+    //           },
+    //         }
+    //       );
+    //       if (data.status === "success") {
+    //         setVideos(data.results);
+    //       }
+    //     }
+    //   } catch (err) {
+    //     console.log(err);
+    //   }
+    // })();
   }, [search]);
 
   const searchHandler = (e) => setSearch(e.target.value);
