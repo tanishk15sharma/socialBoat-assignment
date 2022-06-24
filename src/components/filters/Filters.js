@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useVideos } from "../../contexts/videos";
-
+import "./Filter.css";
 const Filters = () => {
   const [filteredTags, setFilteredTags] = useState([]);
   const { videos } = useVideos();
@@ -19,11 +19,10 @@ const Filters = () => {
   }, [videos]);
 
   return (
-    <div>
-      Filters
+    <div className="filters-container">
       {filteredTags.map((tag) => {
         return (
-          <label className="filter">
+          <label className="filter-tag">
             {tag}
             <input type="checkbox" value={tag} />
           </label>

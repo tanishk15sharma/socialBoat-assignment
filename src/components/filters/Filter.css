@@ -1,0 +1,19 @@
+.filters-container {
+  margin-top: 2rem;
+  text-align: center;
+  color: var(--action-color);
+}
+
+.filter-tag {
+  margin-right: 1rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.filter-tag input {
+  margin-left: 10px;
+  cursor: pointer;
+}
+.filter-tag:hover {
+  color: white;
+  text-decoration: underline;
+}
