@@ -3,16 +3,20 @@ import { Header } from "./components/header/Header";
 import { VideoCard } from "./components/card/VideoCard";
 import { useVideos } from "./contexts/videos";
 import { Filters } from "./components/filters/Filters";
+import { getFilterVideos } from "./utils/filterVideos";
 
 function App() {
   const { videosData } = useVideos();
+
+  const filterVideos = getFilterVideos(videosData);
+
   return (
     <>
       <Header />
       <Filters />
       <main className="videos-container">
-        {videosData.allVideos.length ? (
-          videosData.allVideos.map((video) => (
+        {filterVideos.length ? (
+          filterVideos.map((video) => (
             <VideoCard video={video} key={video.heading} />
           ))
         ) : (

@@ -4,7 +4,7 @@ import "./Filter.css";
 const Filters = () => {
   const [filteredTags, setFilteredTags] = useState([]);
   const { videosData, setVideosData } = useVideos();
-  console.log(videosData);
+
   useEffect(() => {
     let allTags = [];
     let uniqueTags = [];
