@@ -3,12 +3,12 @@ import { useVideos } from "../../contexts/videos";
 import "./Filter.css";
 const Filters = () => {
   const [filteredTags, setFilteredTags] = useState([]);
-  const { videos } = useVideos();
-  console.log(videos);
+  const { videosData } = useVideos();
+  console.log(videosData);
   useEffect(() => {
     let allTags = [];
     let uniqueTags = [];
-    videos.forEach(({ tags }) => allTags.push(...tags));
+    videosData.allVideos.forEach(({ tags }) => allTags.push(...tags));
     // let uniqueTags = result.filter(
     //   (tag, index) => result.indexOf(tag) === index
     // );
@@ -16,13 +16,13 @@ const Filters = () => {
       !uniqueTags.includes(tag) ? uniqueTags.push(tag) : ""
     );
     setFilteredTags(uniqueTags);
-  }, [videos]);
+  }, [videosData.allVideos]);
 
   return (
     <div className="filters-container">
-      {filteredTags.map((tag) => {
+      {filteredTags.map((tag, index) => {
         return (
-          <label className="filter-tag">
+          <label className="filter-tag" key={index}>
             {tag}
             <input type="checkbox" value={tag} />
           </label>

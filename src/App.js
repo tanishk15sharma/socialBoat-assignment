@@ -5,14 +5,16 @@ import { useVideos } from "./contexts/videos";
 import { Filters } from "./components/filters/Filters";
 
 function App() {
-  const { videos } = useVideos();
+  const { videosData } = useVideos();
   return (
     <>
       <Header />
       <Filters />
       <main className="videos-container">
-        {videos.length ? (
-          videos.map((video) => <VideoCard video={video} key={video.heading} />)
+        {videosData.allVideos.length ? (
+          videosData.allVideos.map((video) => (
+            <VideoCard video={video} key={video.heading} />
+          ))
         ) : (
           <h1 className="page-heading">No Videos Found</h1>
         )}

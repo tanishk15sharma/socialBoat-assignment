@@ -4,7 +4,7 @@ import "./Header.css";
 import { useVideos } from "../../contexts/videos";
 const Header = () => {
   const [search, setSearch] = useState("");
-  const { setVideos } = useVideos();
+  const { setVideosData } = useVideos();
 
   useEffect(() => {
     let timer = setTimeout(() => {
@@ -21,7 +21,10 @@ const Header = () => {
               }
             );
             if (data.status === "success") {
-              setVideos(data.results);
+              setVideosData((previousData) => ({
+                ...previousData,
+                allVideos: data.results,
+              }));
             }
           }
         } catch (err) {
@@ -34,26 +37,6 @@ const Header = () => {
     return () => {
       clearTimeout(timer); //
     };
-    // (async () => {
-    //   try {
-    //     if (search.length) {
-    //       const { data } = await axios.get(
-    //         "https://asia-south1-socialboat-dev.cloudfunctions.net/assignmentVideos",
-    //         {
-    //           params: {
-    //             q: search,
-    //             numResults: 4,
-    //           },
-    //         }
-    //       );
-    //       if (data.status === "success") {
-    //         setVideos(data.results);
-    //       }
-    //     }
-    //   } catch (err) {
-    //     console.log(err);
-    //   }
-    // })();
   }, [search]);
 
   const searchHandler = (e) => setSearch(e.target.value);
